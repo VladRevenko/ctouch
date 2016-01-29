@@ -7,11 +7,15 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  jdbc,
   cache,
   ws,
-  specs2 % Test
+  specs2 % Test,
+  "mysql" % "mysql-connector-java" % "5.1.34",
+  "com.typesafe.play" %% "play-slick" % "1.1.1",
+  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.0"
 )
+
+libraryDependencies += evolutions
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
